@@ -1,0 +1,203 @@
+\documentclass[12pt]{article}
+\renewcommand{\contentsname}{Sumário}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\addto\captionsportuguese{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {Sumário}%
+}
+% \usepackage{pifont}
+
+\usepackage{xpatch}
+\usepackage{textcomp}
+\patchcmd{\thebibliography}{\section*{\refname}}{\section*{Bibliografia}}{}{}
+
+\usepackage{makeidx}
+\usepackage{amsmath, amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{biblatex}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{lipsum} 
+\providecommand{\sin}{} \renewcommand{\sin}{\hspace{2pt}\mathrm{sen}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+
+\newcommand\PlaceText[3]{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[outer sep=0pt,inner sep=0pt,anchor=south west] 
+  at ([xshift=#1,yshift=-#2]current page.north west) {#3};
+\end{tikzpicture}%
+}
+
+
+
+
+
+
+\usepackage{mathrsfs}
+\usepackage{faktor}
+
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,
+    citecolor = teal   %choose some color if you want links to stand out
+}
+
+\usepackage{cleveref}
+\crefname{deff}{}{definitions}
+\crefname{exem}{}{exemplos}
+\crefname{col}{}{corolários}
+\crefname{equation}{}{equações}
+\creflabelformat{equation}{#2{\bf{\color{blue}(#1)}}#3}
+\crefname{teorema}{}{teoremas}
+\crefname{oobs}{observação}{observações}
+\creflabelformat{oobs}{#2\bf{\color{black}(#1)}#3}
+\crefname{lema}{}{lemas}
+\creflabelformat{lema}{#2\bf{\color{black}(#1)}#3}
+\crefname{proposicao}{}{proposições}
+\creflabelformat{deff}{#2\bf{\color{black}(#1)}#3}
+\creflabelformat{exem}{#2\bf{\color{black}(#1)}#3}
+\creflabelformat{col}{#2\bf{\color{black}(#1)}#3}
+\creflabelformat{proposicao}{#2{\bf\color{black}(#1)}#3}
+\renewcommand{\theenumi}{\Alph{enumi}}
+
+
+
+\definecolor{gal}{RGB}{0, 7, 111}
+
+
+\makeatletter
+%\patchcmd{\f@nch@head}{\rlap}{\color{black}\rlap}{}{}
+%\patchcmd{\headrule}{\hrule}{\color{TealBlue}\hrule}{}{}
+\patchcmd{\f@nch@foot}{\rlap}{\color{black}\rlap}{}{}
+\patchcmd{\footrule}{\hrule}{\color{green}\hrule}{}{}
+\makeatother
+
+
+
+
+%\usepackage[shortlabels]{enumitem}
+
+\usepackage[a4paper,bottom=0.9in,top=0.9in,left=0.3in,right=0.3in]{geometry}
+
+\usepackage{mathtools}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\usepackage{lastpage}
+\usepackage{graphicx}
+\everymath{\displaystyle}
+\newcommand{\p}{\partial}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\newcommand{\om}{\mathbb{M}}
+
+\newcommand{\jps}[1]{\textcolor{blue}{#1}}
+%\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\pur}[1]{\textcolor{purple}{#1}}
+\newcommand{\maggg}[1]{\textcolor{magenta}{#1}}
+
+%\usepackage{color}
+%\definecolor{SAEblue}{rgb}{0, .62, .91}
+%\renewcommand\theequation{\red{{\arabic{equation}}}}
+
+
+\makeatletter
+\let\mytagform@=\tagform@
+\def\tagform@#1{\maketag@@@{\bfseries\jps{(\ignorespaces#1\unskip\@@italiccorr)}}\hspace{3mm}}
+\renewcommand{\eqref}[1]{\textup{\mytagform@{\ref{#1}}}}
+\makeatother
+
+
+%\chead{\textbf{\thepage}}
+\theoremstyle{definition}
+\newtheorem{deff}{Definição}
+\newtheorem{lema}{Lema}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\lnr}{\left\|}
+\newcommand{\ssum}{\displaystyle\sum}
+\newcommand{\rnr}{\right\|}
+\newcommand{\mm}{\mathcal{M}}
+%\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\hol}{Hol}
+\newtheorem*{obs*}{Notação}
+%\newtheorem*{oobs}{Observação}
+\newtheorem{sublema}{Sub-lema}
+\renewcommand{\qedsymbol}{\rule{0.7em}{0.7em}}
+\newenvironment{demm}{\smallskip \noindent{\bf Demonstração}:}
+{\begin{flushright} $\qedsymbol$\end{flushright}\smallskip}
+\newenvironment{dem}{\smallskip \noindent{\bf Solução}:}
+{\begin{flushright} $\qedsymbol$\end{flushright}\smallskip}
+
+
+\newtheoremstyle{theoremdd}% name of the style to be used
+  {\topsep}% measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep}% measure of space to leave below the theorem. E.g.: 3pt
+  {}% name of font to use in the body of the theorem
+  {1pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\thmname{#1} (\thmnumber{#2})\textbf{\thmnote{ (#3)}.}}
+
+
+  
+
+
+  
+\theoremstyle{theoremdd}
+\newtheorem{oobs}{Observação}
+\newtheorem{teorema}{Teorema}
+
+
+
+\makeatletter
+\patchcmd{\f@nch@head}{\rlap}{\color{BlueViolet}\rlap}{}{}
+%\patchcmd{\headrule}{\hrule}{\color{TealBlue}\hrule}{}{}
+\patchcmd{\f@nch@foot}{\rlap}{\color{BlueViolet}\rlap}{}{}
+\patchcmd{\footrule}{\hrule}{\color{green}\hrule}{}{}
+\makeatother
+
+
+
+\theoremstyle{definition}
+
+\newtheorem{exerc}{Questão}
+\usepackage{float,framed}
+\setlength{\intextsep}{2pt}
+\setlength{\textfloatsep}{2pt}
+\newfloat{Box}{H}{0ob}
+\newenvironment{Mybox}{\begin{Box}\begin{framed}\begin{exerc}}{\end{exerc}\end{framed}\end{Box}}
+
+\newtheorem*{exercc}{Questão Extra}
+\usepackage{float,framed}
+\setlength{\intextsep}{2pt}
+\setlength{\textfloatsep}{2pt}
+\newfloat{Box}{H}{0ob}
+\newenvironment{Herbox}{\begin{Box}\begin{framed}\begin{exercc}}{\end{exercc}\end{framed}\end{Box}}
+
+
+\newcommand{\dd}{\mathrm{d}}
+\renewcommand{\O}{\Omega}
+\renewcommand{\Rn}{\mathbb{R}^n}
+\renewcommand{\C}{\mathscr{C}}
+\newcommand{\parent}[1]{\left( #1 \right)}
+\renewcommand{\theenumi}{\textbf{(\alph{enumi})}}
+
